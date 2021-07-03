@@ -294,6 +294,7 @@ class WaveNet(nn.Module):
 
         # Local conditioning
         if c is not None and self.upsample_conv is not None:
+            B = c.shape[0]
             # B x 1 x C x T
             c = c.unsqueeze(1)
             for f in self.upsample_conv:
